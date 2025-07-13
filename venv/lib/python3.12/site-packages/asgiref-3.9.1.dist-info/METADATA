@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: asgiref
-Version: 3.9.0
+Version: 3.9.1
 Summary: ASGI specs, helper code, and adapters
 Home-page: https://github.com/django/asgiref/
 Author: Django Software Foundation
