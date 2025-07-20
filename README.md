@@ -37,7 +37,7 @@ Feito no Ubuntu 24.04.2 LTS dentro de um WSL 2 do Windows 11 Pro 24H2.
 * Crie um database: `CREATE DATABASE {{nome_do_database}};`
 * Saia do terminal MySQL e do Bash apertando duas vezes `Ctrl + D`
 * Entre no arquivo `my.cnf` e preencha as informações do banco criado
-* Rode o projeto com o comando: `python3 manage.py runserver`
+* Rode o projeto com o comando: `python3 manage.py runserver` (a porta utilizada será 8000 caso não seja especificada)
 
 ## Observações
 * Caso queira acessar a interface do DRF, acesse [http://127.0.0.1:8000/api/v1/](http://127.0.0.1:8000/api/v1/)
