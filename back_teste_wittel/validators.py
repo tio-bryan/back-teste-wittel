@@ -1,7 +1,7 @@
-import re
 from django.core.exceptions import ValidationError
 import datetime
 from django.utils.translation import gettext_lazy as _
+
 
 def validate_cpf(cpf):
     numeros = [int(digito) for digito in cpf if digito.isdigit()]

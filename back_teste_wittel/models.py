@@ -1,5 +1,6 @@
 from django.db import models
-from back_teste_wittel import validators
+from . import validators
+from django.core.validators import MinValueValidator
 
 
 class Cliente(models.Model):
@@ -11,7 +12,8 @@ class Cliente(models.Model):
         validators=[validators.validate_cpf])
     data_nascimento = models.DateField(validators=[validators.date_not_future])
     data_cadastro = models.DateTimeField(auto_now_add=True)
-    renda_familiar = models.DecimalField(null=True, max_digits=65, decimal_places=2, help_text='Até 150 caracteres.')
+    renda_familiar = models.DecimalField(max_digits=65, decimal_places=2, validators=[MinValueValidator(0)], help_text='Até 150 caracteres.')
+
 
     def __str__(self):
         return self.nome
