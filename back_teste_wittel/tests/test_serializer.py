@@ -30,8 +30,9 @@ class ClienteSerializerTest(TestCase):
     def test_serializer_invalido_cpf(self):
         cpfs_invalidos = [
             '',             # CPF vazio
+            '11111111111',  # CPF com todos os dígitos iguais
+            '12345678901',  # CPF inválido (dígito verificador errado))
             '12345',        # CPF muito curto
-            '12345678901',  # CPF inválido
             '123456789012', # CPF muito longo
             'abcdefghijk',  # CPF com letras
         ]

@@ -68,7 +68,8 @@ def calcular_estatisticas(hoje, clientes):
 
 @api_view(['GET'])
 def hoje(request):
-    hoje = timezone.now().date()
+    hoje = timezone.localtime(timezone.now()).date()
+    print(hoje)
     clientes = Cliente.objects.filter(data_cadastro__date=hoje)
     stats = calcular_estatisticas(hoje, clientes)
     return Response(stats)
@@ -76,7 +77,7 @@ def hoje(request):
 
 @api_view(['GET'])
 def semana(request):
-    hoje = timezone.now().date()
+    hoje = timezone.localtime(timezone.now()).date()
     inicio_semana = hoje - timezone.timedelta(days=hoje.weekday())
     fim_semana = inicio_semana + timezone.timedelta(days=6)
     clientes = Cliente.objects.filter(data_cadastro__date__range=(inicio_semana, fim_semana))
@@ -86,7 +87,7 @@ def semana(request):
 
 @api_view(['GET'])
 def mes(request):
-    hoje = timezone.now().date()
+    hoje = timezone.localtime(timezone.now()).date()
     inicio_mes = hoje.replace(day=1)
     fim_mes = inicio_mes + timezone.timedelta(days=31)
     fim_mes = fim_mes.replace(day=1) - timezone.timedelta(days=1)

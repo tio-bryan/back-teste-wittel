@@ -5,6 +5,9 @@ from django.utils.translation import gettext_lazy as _
 
 def validate_cpf(cpf):
     numeros = [int(digito) for digito in cpf if digito.isdigit()]
+
+    if len(numeros) == 11 and len(set(numeros)) == 1:
+        raise ValidationError(f"O CPF {cpf} não é válido. Não pode conter todos os dígitos iguais.")
     
     quant_digitos = False
     validacao1 = False
@@ -23,7 +26,7 @@ def validate_cpf(cpf):
         if numeros[10] == digito_esperado1:
             validacao2 = True
 
-        if quant_digitos == True and validacao1 == True and validacao2 == True:
+        if quant_digitos and validacao1 and validacao2:
             return
         else:
             raise ValidationError(f"O CPF {cpf} não é válido.")

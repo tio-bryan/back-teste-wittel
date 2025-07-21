@@ -20,7 +20,7 @@ class EstatisticasViewTest(APITestCase):
         # Classe B, maior de 18
         Cliente.objects.create(
             nome='Adulto Classe B',
-            cpf='12345678901',
+            cpf='44267615063',
             data_nascimento=date(1995, 1, 1),
             renda_familiar=2000.00,
             data_cadastro=hoje
